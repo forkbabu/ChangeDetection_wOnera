@@ -371,7 +371,7 @@ def EF_UNet(input_shape, classes=1, loss='bce'):
     # Output layer of the U-Net with a softmax activation
     output = Conv2D(classes, (1, 1), activation='sigmoid', name='output', kernel_initializer='he_normal', padding='same', kernel_regularizer=l2(1e-4))(conv9)
 
-    model = tf.keras.models.Model(input=inputs, output=output)
+    model = tf.keras.models.Model(inputs, output)
 
     if loss == 'bce':
         loss = 'binary_crossentropy'
