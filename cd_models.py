@@ -369,7 +369,7 @@ def EF_UNet(input_shape, classes=1, loss='bce'):
     conv9 = UNet_ConvUnit(merge4, stage='9', nb_filter=nb_filter[0], mode=mode)
 
     # Output layer of the U-Net with a softmax activation
-    output = FastDeconv2D(classes, kernel_size=(1,1), activation='sigmoid', name='output', kernel_initializer='he_normal', padding='same', kernel_regularizer=l2(1e-4))(conv9)
+    output = Conv2D(classes, (1, 1), activation='sigmoid', name='output', kernel_initializer='he_normal', padding='same', kernel_regularizer=l2(1e-4))(conv9)
 
     model = Model(input=inputs, output=output)
 
