@@ -14,7 +14,7 @@ import read_and_crop as rnc
 import numpy as np
 from libtiff import TIFF
 import tensorflow as tf
-from keras.callbacks import EarlyStopping
+from tensorflow.keras.callbacks import EarlyStopping
 import tensorflow.python.keras.backend as K
 
 import pandas as pd
