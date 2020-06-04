@@ -85,7 +85,7 @@ model = cdm.EF_UNet([img_size,img_size,2*channels], classes, loss)
 model.summary()
 
 # Train the model
-history = model.fit(inputs, labels, batch_size=batch_size, epochs=epochs, class_weight=weights, validation_split=0.1, callbacks=[EarlyStopping(monitor='val_loss', patience=5, verbose=1, restore_best_weights=True)], shuffle=True, verbose=1)
+history = model.fit(inputs, labels, batch_size=batch_size, epochs=epochs, class_weight = weights.all(), validation_split=0.1, callbacks=[EarlyStopping(monitor='val_loss', patience=5, verbose=1, restore_best_weights=True)], shuffle=True, verbose=1)
 # history = model.fit(inputs, 5*[labels], batch_size=batch_size, epochs=epochs, validation_split=0.1, callbacks=[EarlyStopping(monitor='val_loss', patience=5, verbose=1, restore_best_weights=True)], shuffle=True, verbose=1)
 
 # Save the history for accuracy/loss plotting
@@ -94,10 +94,3 @@ history_save = pd.DataFrame(history.history).to_hdf(save_dir + history_name + ".
 # Save model and weights
 model.save(save_dir + model_name + ".h5")
 print('Trained model saved @ %s ' % save_dir)
-
-# Save frozen graph
-#frozen_graph = freeze.freeze_session(K.get_session(), output_names=[out.op.name for out in model.outputs])
-#tf.train.write_graph(frozen_graph, frozen_dir, model_name + ".pbtxt", as_text=True)
-#tf.train.write_graph(frozen_graph, frozen_dir, model_name + ".pb", as_text=False)
-
-#print('Frozen model saved @ %s ' % frozen_dir)
