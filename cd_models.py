@@ -6,17 +6,15 @@
 Created on Thu, June 4, 2020
 """
 
-
+import math
 from tensorflow.python.keras.models import Model
 from tensorflow.python.keras.layers import Input, Conv2D, MaxPooling2D, Add, BatchNormalization, Conv2DTranspose, concatenate
-from tensorflow.python.keras.optimizers import Adam
 from tensorflow.python.keras.regularizers import l2
 from tensorflow.python.keras import backend as K
-import math
 from tensorflow.python.keras.layers.convolutional import Conv
 from tensorflow.python.keras.utils import conv_utils
 import tensorflow as tf
-
+from tf.keras.optimizers import Adam
 
 
 
