@@ -83,7 +83,7 @@ print("**** Weights: ", weights)
 # Create the model
 model = cdm.EF_UNet([img_size,img_size,2*channels], classes, loss)
 model.summary()
-
+tf.initialize_all_variables()
 # Train the model
 history = model.fit(inputs, labels, batch_size=batch_size, epochs=epochs, validation_split=0.1, callbacks=[EarlyStopping(monitor='val_loss', patience=5, verbose=1, restore_best_weights=True)], shuffle=True, verbose=1)
 # history = model.fit(inputs, 5*[labels], batch_size=batch_size, epochs=epochs, validation_split=0.1, callbacks=[EarlyStopping(monitor='val_loss', patience=5, verbose=1, restore_best_weights=True)], shuffle=True, verbose=1)
