@@ -18,7 +18,6 @@ from tensorflow.keras.callbacks import EarlyStopping
 
 
 import pandas as pd
-import freeze
 import cd_models as cdm
 import argparse
 from sklearn.utils import class_weight
