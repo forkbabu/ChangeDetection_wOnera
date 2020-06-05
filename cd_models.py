@@ -7,16 +7,15 @@ Created on Thu, June 4, 2020
 """
 
 import math
-from tensorflow.python.keras.models import Model
-from tensorflow.python.keras.layers import Input, Conv2D, MaxPooling2D, Add, BatchNormalization, Conv2DTranspose, concatenate
-from tensorflow.python.keras.regularizers import l2
-from tensorflow.python.keras import backend as K
-from tensorflow.python.keras.layers.convolutional import Conv
-from tensorflow.python.keras.utils import conv_utils
+
+#from tensorflow.python.keras.layers.convolutional import Conv
 import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
-
-
+from tensorflow.keras import backend as K
+from tensorflow.keras.regularizers import l2
+from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Add, BatchNormalization, Conv2DTranspose, concatenate,Layer
+from tensorflow.keras.models import Model
+from tensorflow.keras.utils import conv_utils
 
 class BiasHeUniform(tf.keras.initializers.VarianceScaling):
     def __init__(self, seed=None):
@@ -70,7 +69,7 @@ def isqrt_newton_schulz_autograd_batch(A: tf.Tensor, numIters: int):
 
 
 
-class FastDeconv2D(Conv):
+class FastDeconv2D(tf.keras.layers.Layer):
 
     def __init__(self, in_channels, out_channels, kernel_size, stride=1, padding='valid', dilation_rate=1,
                  activation=None, use_bias=True, groups=1, eps=1e-5, n_iter=5, momentum=0.1, block=64,
