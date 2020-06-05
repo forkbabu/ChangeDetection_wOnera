@@ -77,8 +77,8 @@ y_true = np.asarray(train_labels)
 print(y_true.shape)
 
 # Load the model
-model = load_model(save_dir + model_name + '.h5', custom_objects={'weighted_bce_dice_loss': cdm.weighted_bce_dice_loss})
-# model = load_model(save_dir + model_name + '.h5')
+model = load_model(save_dir + model_name + '_deconv.h5', custom_objects={'weighted_bce_dice_loss': cdm.weighted_bce_dice_loss})
+# model = load_model(save_dir + model_name + '_deconv.h5')
 model.summary()
 
 # Perform inference
@@ -183,4 +183,4 @@ plt.show()
 rates = ['tpr', 'fpr']
 datas = np.stack((tpr,fpr))
 df = pd.DataFrame(datas, index = rates)
-df.to_hdf(roc_dir + model_name + '_rates.h5',"rates",complevel=0)
+df.to_hdf(roc_dir + model_name + '_rates_deconv.h5',"rates",complevel=0)

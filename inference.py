@@ -52,8 +52,8 @@ test_image = rnc.crop(padded_raster, img_size, stride)
 inputs = np.asarray(test_image)
 
 # Load model
-model = load_model(save_dir + model_name + '.h5', custom_objects={'weighted_bce_dice_loss': cdm.weighted_bce_dice_loss})
-# model = load_model(save_dir + model_name + '.h5')
+model = load_model(save_dir + model_name + '_deconv.h5', custom_objects={'weighted_bce_dice_loss': cdm.weighted_bce_dice_loss})
+# model = load_model(save_dir + model_name + '_deconv.h5')
 model.summary()
 
 print("Model loaded!")

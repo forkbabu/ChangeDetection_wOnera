@@ -90,8 +90,8 @@ history = model.fit(inputs, labels, batch_size=batch_size, epochs=epochs, class_
 # history = model.fit(inputs, 5*[labels], batch_size=batch_size, epochs=epochs, validation_split=0.1, callbacks=[EarlyStopping(monitor='val_loss', patience=5, verbose=1, restore_best_weights=True)], shuffle=True, verbose=1)
 
 # Save the history for accuracy/loss plotting
-history_save = pd.DataFrame(history.history).to_hdf(save_dir + history_name + ".h5", "history", append=False)
+history_save = pd.DataFrame(history.history).to_hdf(save_dir + history_name + "_deconv.h5", "history", append=False)
 
 # Save model and weights
-model.save(save_dir + model_name + ".h5")
+model.save(save_dir + model_name + "_deconv.h5")
 print('Trained model saved @ %s ' % save_dir)
