@@ -15,7 +15,7 @@ from tensorflow.keras import backend as K
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Add, BatchNormalization, Conv2DTranspose, concatenate,Layer
 from tensorflow.keras.models import Model
-from tensorflow.keras.utils import conv_utils
+from tensorflow.python.keras.utils import conv_utils
 
 class BiasHeUniform(tf.keras.initializers.VarianceScaling):
     def __init__(self, seed=None):
