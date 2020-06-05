@@ -53,7 +53,7 @@ class VGG(tf.keras.Model):
 
 
 if __name__ == '__main__':
-    x = tf.zeros([32, 128, 128, 26])
+    x = tf.zeros([16, 32, 32, 3])
     model = VGG(vgg_name='VGG16', num_classes=10)
 
     # trace the model
