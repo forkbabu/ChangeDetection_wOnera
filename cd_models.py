@@ -7,16 +7,13 @@ Created on Thu, June 4, 2020
 """
 
 import math
-
-
 import tensorflow as tf
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras import backend as K
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Add, BatchNormalization, Conv2DTranspose, concatenate,Layer
 from tensorflow.keras.models import Model
-from tensorflow.python.keras.utils import conv_utils
-from tf_deconv import FastDeconv2D, ChannelDeconv2D, BiasHeUniform
+from tf_deconv import FastDeconv2D
 
 
 def dice_coef(y_true, y_pred, smooth=1, weight=0.5):
@@ -46,7 +43,7 @@ def UNet_ConvUnit(input_tensor, stage, nb_filter, kernel_size=3):
     x = FastDeconv2D(in_channels=2,out_channels=nb_filter, kernel_size=(ksize,ksize), padding='same',activation='selu')(input_tensor)
     x = FastDeconv2D(in_channels=nb_filter,out_channels=nb_filter, kernel_size=(ksize,ksize), padding='same',activation='selu')(x)
     x = BatchNormalization(name='bn' + stage)(x)
-    
+
     return x
 
 
