@@ -261,7 +261,7 @@ class FastDeconv2D(Conv):
         kernel_shape = self.kernel_size + (input_channel // self.groups, self.filters)
 
         self.kernel = self.add_weight(
-            name='kernel',
+            name='kern',
             shape=kernel_shape,
             initializer=self.kernel_initializer,
             regularizer=self.kernel_regularizer,
@@ -270,7 +270,7 @@ class FastDeconv2D(Conv):
             dtype=self.dtype)
         if self.use_bias:
             self.bias = self.add_weight(
-                name='bias',
+                name='bia',
                 shape=(self.filters,),
                 initializer=self.bias_initializer,
                 regularizer=self.bias_regularizer,
