@@ -94,7 +94,7 @@ class FastDeconv2D(tf.keras.layers.Layer):
                 'groups. Received: groups={}, filters={}'.format(groups, out_channels))
 
         super(FastDeconv2D, self).__init__(
-            in_channels=2, out_channels, kernel_size, stride, dilation_rate=dilation_rate,
+            2, out_channels, kernel_size, stride, dilation_rate=dilation_rate,
             activation=activation, use_bias=use_bias, kernel_initializer=kernel_initializer,
             bias_initializer=bias_initializer, **kwargs)
 
