@@ -21,7 +21,7 @@ save_dir = '../models/'
 model_name = 'EF-UNet_128-128_sklw-bce'
 history_name = model_name + '_history'
 
-history = pd.read_hdf(save_dir + history_name + ".h5", "history")
+history = pd.read_hdf(save_dir + history_name + "_deconv.h5", "history")
 n_epochs = len(history)
 n_epochs = np.arange(1, n_epochs+1)
 
