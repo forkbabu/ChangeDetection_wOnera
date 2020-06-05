@@ -314,8 +314,8 @@ def weighted_bce_dice_loss(y_true,y_pred):
 
 
 def UNet_ConvUnit(input_tensor, stage, nb_filter, kernel_size=3, mode='None'):   
-    x = FastDeconv2D(nb_filter, kernel_size, kernel_size, activation='selu', name='convA' + stage + '_1', kernel_initializer='he_normal', padding='same', kernel_regularizer=l2(1e-4))(input_tensor)
-    x = FastDeconv2D(nb_filter, kernel_size, kernel_size, activation='selu', name='convB' + stage + '_2', kernel_initializer='he_normal', padding='same', kernel_regularizer=l2(1e-4))(x)
+    x = FastDeconv2D(nb_filter, kernel_size, kernel_size, activation='selu',  kernel_initializer='he_normal', padding='same', kernel_regularizer=l2(1e-4))(input_tensor)
+    x = FastDeconv2D(nb_filter, kernel_size, kernel_size, activation='selu',  kernel_initializer='he_normal', padding='same', kernel_regularizer=l2(1e-4))(x)
     x = BatchNormalization(name='bn' + stage)(x)
 
     if mode == 'residual':
