@@ -94,6 +94,6 @@ history_save = pd.DataFrame(history.history).to_hdf(save_dir + history_name + "_
 
 # Save model and weights
 modelpath = save_dir + model_name + "_deconv.h5" 
-tf.compat.v1.keras.experimental.export_saved_model(model, modepath)
+tf.compat.v1.keras.experimental.export_saved_model(model, modelpath)
 #model.save_weights(modelpath,overwrite=True,save_format='h5')
 print('Trained model saved @ %s ' % save_dir)
