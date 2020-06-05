@@ -94,5 +94,5 @@ history_save = pd.DataFrame(history.history).to_hdf(save_dir + history_name + "_
 
 # Save model and weights
 modelpath = save_dir + model_name + "_deconv.h5" 
-model.save(modelpath,overwrite=True,save_format='h5')
+model.save_weights(modelpath,overwrite=True,save_format='h5')
 print('Trained model saved @ %s ' % save_dir)
