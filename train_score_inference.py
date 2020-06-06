@@ -142,9 +142,9 @@ num_crops = []
 padded_shapes = []
 
 for f in folders:
-     raster1 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_1_rect/')
+    raster1 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_1_rect/')
     #raster1 = rnc.build_raster(dataset_dir + f + '/imgs_1_rect/')
-     raster2 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_2_rect/')
+    raster2 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_2_rect/')
     #raster2 = rnc.build_raster(dataset_dir + f + '/imgs_2_rect/')
     raster = np.concatenate((raster1,raster2), axis=2)
     padded_raster = rnc.pad(raster, img_size)
