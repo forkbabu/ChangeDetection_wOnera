@@ -51,10 +51,10 @@ folders = rnc.get_folderList(dataset_dir + 'train.txt')
 # Build rasters, pad them and crop them to get the input images
 train_images = []
 for f in folders:
-    # raster1 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_1_rect/')
-    raster1 = rnc.build_raster(dataset_dir + f + '/imgs_1_rect/')
-    # raster2 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_2_rect/')
-    raster2 = rnc.build_raster(dataset_dir + f + '/imgs_2_rect/')
+     raster1 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_1_rect/')
+    #raster1 = rnc.build_raster(dataset_dir + f + '/imgs_1_rect/')
+     raster2 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_2_rect/')
+    #raster2 = rnc.build_raster(dataset_dir + f + '/imgs_2_rect/')
     raster = np.concatenate((raster1,raster2), axis=2)
     padded_raster = rnc.pad(raster, img_size)
     train_images = train_images + rnc.crop(padded_raster, img_size, stride)    
@@ -141,10 +141,10 @@ num_crops = []
 padded_shapes = []
 
 for f in folders:
-    # raster1 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_1_rect/')
-    raster1 = rnc.build_raster(dataset_dir + f + '/imgs_1_rect/')
-    # raster2 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_2_rect/')
-    raster2 = rnc.build_raster(dataset_dir + f + '/imgs_2_rect/')
+     raster1 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_1_rect/')
+    #raster1 = rnc.build_raster(dataset_dir + f + '/imgs_1_rect/')
+     raster2 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_2_rect/')
+    #raster2 = rnc.build_raster(dataset_dir + f + '/imgs_2_rect/')
     raster = np.concatenate((raster1,raster2), axis=2)
     padded_raster = rnc.pad(raster, img_size)
     shape = (padded_raster.shape[0], padded_raster.shape[1], classes)
@@ -323,8 +323,8 @@ folders = rnc.get_folderList(dataset_dir + 'train.txt')
 # f = random.choice(folders)
 f = 'rennes'
 
-raster1 = rnc.build_raster(dataset_dir + f + '/imgs_1_rect/')
-raster2 = rnc.build_raster(dataset_dir + f + '/imgs_2_rect/')
+raster1 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_1_rect/')
+raster2 = rnc.build_rasterRGB(dataset_dir + f + '/imgs_2_rect/')
 raster = np.concatenate((raster1,raster2), axis=2)
 padded_raster = rnc.pad(raster, img_size)
 test_image = rnc.crop(padded_raster, img_size, stride)
