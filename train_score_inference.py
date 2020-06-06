@@ -33,7 +33,7 @@ args = parser.parse_args()
 
 batch_size = 32
 img_size = args.size
-channels = 13
+channels = 3
 stride = args.stride
 classes = 1
 epochs = args.epochs
@@ -118,7 +118,7 @@ import itertools
 
 batch_size = 32
 img_size = 128
-channels = 13
+channels = 3
 stride = 128
 classes = 1
 dataset_dir = '../OneraDataset_Images/'
@@ -301,7 +301,7 @@ import random
 
 
 img_size = 128
-channels = 13
+channels = 3
 stride = 128
 classes = 1
 
